@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog>
+    <release version="2.1.0.0" versioncode="72">
+        <change>supporto per Android Marshmallow</change>
+        <change>nuova icona</change>
+        <change>nuovo widget reattivo</change>
+        <change>ottimizzazione dei vecchi widget</change>
+        <change>nuova versione della app di sistema</change>
+        <change>corretto mancato aggiornamento del widget a schermo acceso</change>
+        <change>corretti vari bug riportati nei crash report</change>
+        <change>corretti grafici non funzionanti in 5.1</change>
+        <change>corretta finestra di dialogo per la valutazione</change>
+        <change>corretti i totali mostrati nella finestra Processi</change>
+        <change>nuova decodifica per i kernel wakelock di LG G3</change>        
+    </release>
+
+</changelog>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog>
+    <release version="2.1.0.0" versioncode="72">
+        <change>Podpora OS Android Marshmallow</change>
+        <change>Nová grafika</change>
+        <change>Nový responzivní widget</change>
+        <change>Optimalizované staré widgety</change>
+        <change>Nová verze systémové aplikace</change>
+        <change>Oprava: Widget vždy neobnovoval zobrazení při zapnuté obrazovce</change>
+        <change>Oprava: Opravy chyb na základě crash reportů</change>
+        <change>Oprava: Nesprávné zobrazení grafů na Android 5.1</change>
+        <change>Oprava: Dialog pro hodnocení aplikace</change>
+        <change>Oprava: Celkové hodnoty při zobrazení procesů</change>
+        <change>Speciální parser pro wakelocky jádra na LG G3</change>
+    </release>
+
+</changelog>

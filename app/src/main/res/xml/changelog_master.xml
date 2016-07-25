@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog>
+    <release version="2.2.0.0B6" versioncode="78">
+        <change>I18N</change>
+        <change>Fixed kernel wakelock in API/non-root mode</change>
+        <change>Fixed sticky watchdog toast</change>
+        <change>Fixed watchdog sometimes reporting >100% awake</change>
+        <change>Fixed missing icons in alarms (API mode)</change>
+        <change>More agressive handling of kernel wakelocks for LG G2, G3, G4 devices for any android version</change>
+    </release>
+    
+    <release version="2.2.0.0B5" versioncode="77">
+        <change>I18N</change>
+        <change>Added handling of kernel wakelocks for LG G4</change>
+        <change>Added the option to select the output folder for dumpfiles etc. Requires OI FileManager</change>
+        <change>Fixed touch feedback to extend to the whole row</change>
+    </release>
+    
+    <release version="2.2.0.0B4" versioncode="76">
+        <change>Introduced Snackbar instead of Toasts</change>
+        <change>Fixed more issues related to non-rooted devices (when system app in installed)</change>
+        <change>Fixed widget layouts for RTL languages</change>
+    </release>
+    
+    <release version="2.2.0.0B3" versioncode="75">
+        <change>Doze mode stats are microsoeconds instead of milliseconds</change>
+        <change>Network stats now also available for non-rooted devices (when system app in installed)</change>
+        <change>Added sensor and sync time to other stats</change>
+    </release>
+    
+    <release version="2.2.0.0B2" versioncode="74">
+        <change>Added more detailed BT stats for Marshmallow</change>
+        <change>Fix for stats not showing when app has no root but batterystats perms</change>
+		<change>Added Doze mode stats for Marshmallow Devices</change>
+    </release>
+    
+    <release version="2.2.0.0B1" versioncode="73">
+        <change>Experimental: get BATTERY_INFO permissions without system app (root only)</change>
+        <change>Removed requirement for root (when system app in installed)</change>
+        <change>Fixed API and non-API access to alarms on Marshmallow</change>
+        <change>Fixed various FC conditions from gplay crash reports</change>
+        <change>I18N</change>
+        <change>Moved credits and changelog to about screen</change> 
+    </release>
+
+</changelog>

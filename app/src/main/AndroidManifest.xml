@@ -1,0 +1,296 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.david.zhumingwei.betterbatterysatats"
+    android:installLocation="internalOnly"
+    android:versionCode="78"
+    android:versionName="2.2.0.0B6"
+    >
+
+
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+    <uses-permission android:name="android.permission.DUMP" />
+    <!-- required for writing dump files -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- required by M-preview -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- store kernel wakelock ref boot -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- detect when battery is charged -->
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+    <!-- detect  when screen is turned on/off -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- detect unplug actions -->
+    <uses-permission android:name="android.permission.DEVICE_POWER" />
+    <!-- retrieve ps list (running tasks) -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- tentative to fix bug #173 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <!-- need to hold wakelocks for writing operations -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- needed to read logcat -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <!-- permission to access su (optional if available for dumpsys and network stats -->
+    <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+    <uses-feature
+        android:name="android.software.app_widgets"
+        android:required="true" />
+    <application
+        android:name="cn.david.zhumingwei.betterbatterystats.BbsApplication"
+        android:icon="@mipmap/ic_launcher"
+        android:label="BetterBatteryStats"
+        android:theme="@style/Theme.Bbs" >
+
+
+        <activity
+            android:name="cn.david.zhumingwei.betterbatterystats.StatsActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="BetterBatteryStats" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="cn.david.zhumingwei.betterbatterystats.AboutActivity"
+            android:parentActivityName="cn.david.zhumingwei.betterbatterystats.StatsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.david.zhumingwei.betterbatterystats.StatsActivity" />
+        </activity>
+        <activity
+            android:name="cn.david.zhumingwei.betterbatterystats.CreditsActivity"
+            android:parentActivityName="cn.david.zhumingwei.betterbatterystats.StatsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.david.zhumingwei.betterbatterystats.StatsActivity" />
+        </activity>
+
+        <!-- we need both version -->
+        <activity
+            android:name="cn.david.zhumingwei.betterbatterystats.PreferencesActivity_V8"
+            android:parentActivityName="cn.david.zhumingwei.betterbatterystats.StatsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.david.zhumingwei.betterbatterystats.StatsActivity" />
+        </activity>
+        <activity
+            android:name="cn.david.zhumingwei.betterbatterystats.PreferencesFragmentActivity_V11"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName="cn.david.zhumingwei.betterbatterystats.StatsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.david.zhumingwei.betterbatterystats.StatsActivity" />
+        </activity>
+        <activity
+            android:name="cn.david.zhumingwei.betterbatterystats.ImportExportPreferencesActivity"
+            android:configChanges="orientation|screenSize" >
+            <intent-filter>
+                <action android:name="cn.david.zhumingwei.betterbatterystats.ImportExportPreferencesActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="cn.david.zhumingwei.betterbatterystats.SystemAppActivity" >
+            <intent-filter>
+                <action android:name="cn.david.zhumingwei.betterbatterystats.SystemAppActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="cn.david.zhumingwei.betterbatterystats.HelpActivity"
+            android:parentActivityName="cn.david.zhumingwei.betterbatterystats.StatsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.david.zhumingwei.betterbatterystats.StatsActivity" />
+        </activity>
+        <activity android:name="com.asksven.android.common.ReadmeActivity" />
+        <activity
+            android:name="cn.david.zhumingwei.betterbatterystats.HistActivity"
+            android:configChanges="orientation"
+            android:parentActivityName="cn.david.zhumingwei.betterbatterystats.NewGraphActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.david.zhumingwei.betterbatterystats.NewGraphActivity" />
+        </activity>
+        <activity
+            android:name="cn.david.zhumingwei.betterbatterystats.RawStatsActivity"
+            android:configChanges="orientation"
+            android:parentActivityName="cn.david.zhumingwei.betterbatterystats.StatsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.david.zhumingwei.betterbatterystats.StatsActivity" />
+        </activity>
+        <activity
+            android:name="cn.david.zhumingwei.betterbatterystats.PackageInfoActivity"
+            android:configChanges="orientation"
+            android:parentActivityName="cn.david.zhumingwei.betterbatterystats.StatsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.david.zhumingwei.betterbatterystats.StatsActivity" />
+        </activity>
+        <activity
+            android:name="cn.david.zhumingwei.betterbatterystats.NewGraphActivity"
+            android:parentActivityName="cn.david.zhumingwei.betterbatterystats.StatsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.david.zhumingwei.betterbatterystats.StatsActivity" />
+        </activity>
+        <activity android:name="cn.david.zhumingwei.betterbatterystats.ResponsiveListActivity" />
+        <activity
+            android:name="cn.david.zhumingwei.betterbatterystats.localeplugin.ui.EditActivity"
+            android:exported="true"
+            android:icon="@drawable/icon_notext"
+            android:label="@string/plugin_name"
+            android:theme="@style/Theme.Locale.Dark"
+            android:uiOptions="splitActionBarWhenNarrow" >
+
+            <!-- this Intent filter allows the plug-in to be discovered by Locale -->
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="cn.david.zhumingwei.betterbatterystats.DashClockSettingsActivity"
+            android:exported="true"
+            android:label="Settings" />
+        <!--
+             This is the "fire" BroadcastReceiver. Note that Locale will reject plug-in BroadcastReceivers for the following reasons:
+                - The BroadcastReceiver isn't exported (e.g. android:exported="false")
+                - The BroadcastReceiver isn't enabled (e.g. android:enabled="false")
+                - The BroadcastReceiver requires permissions not available to Locale
+                - There are multiple BroadcastReceivers for com.twofortyfouram.locale.intent.action.FIRE_SETTING
+        -->
+        <receiver
+            android:name="cn.david.zhumingwei.betterbatterystats.localeplugin.receiver.FireReceiver"
+            android:exported="true"
+            android:process=":background" >
+
+            <!-- this Intent filter allows the plug-in to discovered by Locale -->
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.FIRE_SETTING" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="cn.david.zhumingwei.betterbatterystats.handlers.OnBootHandler" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="cn.david.zhumingwei.betterbatterystats.handlers.OnUnplugHandler" >
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="cn.david.zhumingwei.betterbatterystats.widgetproviders.LargeWidgetProvider"
+            android:label="BBS 2 x 2 Widget (legacy)" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="BBS_WIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/large_widget_info" />
+        </receiver>
+        <receiver
+            android:name="cn.david.zhumingwei.betterbatterystats.widgetproviders.MediumWidgetProvider"
+            android:label="BBS 2 x 1 Widget (legacy)" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="BBS_WIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/medium_widget_info" />
+        </receiver>
+        <receiver
+            android:name="cn.david.zhumingwei.betterbatterystats.widgetproviders.SmallWidgetProvider"
+            android:label="BBS 1 x 1 Widget (legacy)" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="BBS_WIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/small_widget_info" />
+        </receiver>
+        <receiver
+            android:name="cn.david.zhumingwei.betterbatterystats.ActiveMonAlarmReceiver"
+            android:process=":remote" />
+        <receiver
+            android:name="cn.david.zhumingwei.betterbatterystats.widgetproviders.AppWidget"
+            android:label="BBS Widget (responsive)" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_OPTIONS_CHANGED" />
+                <action android:name="BBS_WIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_provider" />
+        </receiver>
+
+        <service android:name="cn.david.zhumingwei.betterbatterystats.services.UpdateLargeWidgetService" >
+        </service>
+        <service android:name="cn.david.zhumingwei.betterbatterystats.services.UpdateMediumWidgetService" >
+        </service>
+        <service android:name="cn.david.zhumingwei.betterbatterystats.services.UpdateSmallWidgetService" >
+        </service>
+        <service android:name="cn.david.zhumingwei.betterbatterystats.services.UpdateWidgetService" />
+        <service android:name="cn.david.zhumingwei.betterbatterystats.services.EventWatcherService" />
+        <service android:name="cn.david.zhumingwei.betterbatterystats.services.KbReaderService" />
+        <service android:name="cn.david.zhumingwei.betterbatterystats.services.WriteUnpluggedReferenceService" />
+        <service android:name="cn.david.zhumingwei.betterbatterystats.services.WriteCustomReferenceService" />
+        <service android:name="cn.david.zhumingwei.betterbatterystats.services.WriteCurrentReferenceService" />
+        <service android:name="cn.david.zhumingwei.betterbatterystats.services.WriteDumpfileService" />
+        <service android:name="cn.david.zhumingwei.betterbatterystats.services.WriteScreenOffReferenceService" />
+        <service android:name="cn.david.zhumingwei.betterbatterystats.services.WriteTimerReferenceService" />
+        <service android:name="cn.david.zhumingwei.betterbatterystats.services.WriteScreenOnReferenceService" />
+        <service android:name="cn.david.zhumingwei.betterbatterystats.services.WriteBootReferenceService" />
+        <service android:name="cn.david.zhumingwei.betterbatterystats.services.WatchdogProcessingService" />
+        <service
+            android:name="cn.david.zhumingwei.betterbatterystats.services.BbsDashClockExtension"
+            android:icon="@drawable/ic_stat_notification"
+            android:label="BetterBatteryStats"
+            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension" />
+            </intent-filter>
+
+            <meta-data
+                android:name="protocolVersion"
+                android:value="2" />
+            <meta-data
+                android:name="worldReadable"
+                android:value="true" />
+            <meta-data
+                android:name="description"
+                android:value="Show info about awake times and drain per hour" />
+            <meta-data
+                android:name="settingsActivity"
+                android:value="cn.david.zhumingwei.betterbatterystats.DashClockSettingsActivity" />
+        </service>
+
+
+    </application>
+
+</manifest>
